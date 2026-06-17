@@ -79,8 +79,8 @@ neoForge {
 
 
 dependencies {
-    implementation 'org.postgresql:postgresql:42.7.11'
-    implementation 'com.zaxxer:HikariCP:6.3.0'
+    jarJar(implementation("org.postgresql:postgresql:42.7.11"))
+    jarJar(implementation("com.zaxxer:HikariCP:6.3.0"))
 
     additionalRuntimeClasspath 'org.postgresql:postgresql:42.7.11'
     additionalRuntimeClasspath 'com.zaxxer:HikariCP:6.3.0'
