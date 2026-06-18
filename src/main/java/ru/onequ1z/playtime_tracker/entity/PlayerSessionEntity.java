@@ -5,19 +5,38 @@ import java.util.UUID;
 
 
 public class PlayerSessionEntity {
+    private Long id;
     private UUID playerUuid;
     private Instant loginTime;
+    private Instant lastSeenAt;
     private Instant logoutTime;
-    private long durationSeconds;
+    private Long durationSeconds;
 
     public PlayerSessionEntity() {
     }
 
-    public PlayerSessionEntity(UUID playerUuid, Instant loginTime, Instant logoutTime, long durationSeconds) {
+    public PlayerSessionEntity(
+            Long id,
+            UUID playerUuid,
+            Instant loginTime,
+            Instant lastSeenAt,
+            Instant logoutTime,
+            Long durationSeconds
+    ) {
+        this.id = id;
         this.playerUuid = playerUuid;
         this.loginTime = loginTime;
+        this.lastSeenAt = lastSeenAt;
         this.logoutTime = logoutTime;
         this.durationSeconds = durationSeconds;
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
     }
 
     public UUID getPlayerUuid() {
@@ -44,11 +63,19 @@ public class PlayerSessionEntity {
         this.logoutTime = logoutTime;
     }
 
-    public long getDurationSeconds() {
+    public Long getDurationSeconds() {
         return durationSeconds;
     }
 
-    public void setDurationSeconds(long durationSeconds) {
+    public void setDurationSeconds(Long durationSeconds) {
         this.durationSeconds = durationSeconds;
+    }
+
+    public Instant getLastSeenAt() {
+        return lastSeenAt;
+    }
+
+    public void setLastSeenAt(Instant lastSeenAt) {
+        this.lastSeenAt = lastSeenAt;
     }
 }

@@ -88,28 +88,36 @@ public class PlayerPlaytimeRepository {
     }
 
     public void incrementAfterSession(UUID uuid, long sessionDurationSeconds) {
-        try (
-                Connection connection = connectionManager.getConnection();
-                PreparedStatement statement = connection.prepareStatement(INCREMENT_AFTER_SESSION_SQL)
-        ) {
-            statement.setObject(1, uuid);
-            statement.setLong(2, sessionDurationSeconds);
-            statement.executeUpdate();
+        try (Connection connection = connectionManager.getConnection()) {
+            incrementAfterSession(connection, uuid, sessionDurationSeconds);
         } catch (SQLException e) {
             throw new RuntimeException("Failed to increment player playtime", e);
         }
     }
 
+    public void incrementAfterSession(Connection connection, UUID uuid, long sessionDurationSeconds)
+            throws SQLException {
+        try (PreparedStatement statement = connection.prepareStatement(INCREMENT_AFTER_SESSION_SQL)) {
+            statement.setObject(1, uuid);
+            statement.setLong(2, sessionDurationSeconds);
+            statement.executeUpdate();
+        }
+    }
+
     public void updateWeeklyPlaytime(UUID uuid, long weeklyPlaytimeSeconds) {
-        try (
-                Connection connection = connectionManager.getConnection();
-                PreparedStatement statement = connection.prepareStatement(UPDATE_WEEKLY_SQL)
-        ) {
+        try (Connection connection = connectionManager.getConnection()) {
+            updateWeeklyPlaytime(connection, uuid, weeklyPlaytimeSeconds);
+        } catch (SQLException e) {
+            throw new RuntimeException("Failed to update weekly playtime", e);
+        }
+    }
+
+    public void updateWeeklyPlaytime(Connection connection, UUID uuid, long weeklyPlaytimeSeconds)
+            throws SQLException {
+        try (PreparedStatement statement = connection.prepareStatement(UPDATE_WEEKLY_SQL)) {
             statement.setLong(1, weeklyPlaytimeSeconds);
             statement.setObject(2, uuid);
             statement.executeUpdate();
-        } catch (SQLException e) {
-            throw new RuntimeException("Failed to update weekly playtime", e);
         }
     }
 }
