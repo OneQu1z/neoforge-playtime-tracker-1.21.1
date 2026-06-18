@@ -15,6 +15,11 @@ import java.util.List;
 import java.util.Optional;
 import java.util.UUID;
 
+/**
+ * Репозиторий для работы с таблицей {@code player_sessions}.
+ * <p>
+ * Отвечает за создание, закрытие, поиск открытых сессий и обновление метки последней активности.
+ */
 public class PlayerSessionRepository {
     private static final String SUM_DURATION_SINCE_SQL = """
             SELECT COALESCE(SUM(duration_seconds), 0)

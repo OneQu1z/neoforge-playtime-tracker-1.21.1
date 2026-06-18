@@ -3,6 +3,12 @@ package ru.onequ1z.playtime_tracker.entity;
 import java.util.UUID;
 
 
+/**
+ * Агрегированная статистика игрового времени игрока.
+ * <p>
+ * Соответствует строке таблицы {@code player_playtime} и хранит общее
+ * и недельное время в секундах.
+ */
 public class PlayerPlaytimeEntity {
     private UUID playerUuid;
     private long totalPlaytimeSeconds;

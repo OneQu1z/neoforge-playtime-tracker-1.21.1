@@ -5,6 +5,12 @@ import net.neoforged.neoforge.event.tick.ServerTickEvent;
 import ru.onequ1z.playtime_tracker.service.HeartbeatScheduler;
 import ru.onequ1z.playtime_tracker.service.PlayTimeService;
 
+/**
+ * Обработчик серверных тиков для периодического обновления метки активности сессий.
+ * <p>
+ * По расписанию {@link ru.onequ1z.playtime_tracker.service.HeartbeatScheduler}
+ * записывает в БД время последнего «пульса» открытых сессий.
+ */
 public class SessionHeartbeatHandler {
     private final PlayTimeService playTimeService;
     private final HeartbeatScheduler heartbeatScheduler;

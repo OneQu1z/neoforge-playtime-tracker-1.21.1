@@ -12,6 +12,11 @@ import java.util.List;
 import java.util.Optional;
 import java.util.UUID;
 
+/**
+ * Репозиторий для работы с таблицей {@code player_playtime}.
+ * <p>
+ * Хранит и обновляет суммарное и недельное игровое время игроков.
+ */
 public class PlayerPlaytimeRepository {
     private static final String FIND_BY_UUID_SQL = """
             SELECT player_uuid, total_playtime_seconds, weekly_playtime_seconds

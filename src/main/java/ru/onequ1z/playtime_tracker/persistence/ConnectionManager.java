@@ -7,6 +7,9 @@ import ru.onequ1z.playtime_tracker.PlayTimeTrackerMod;
 import java.sql.Connection;
 import java.sql.SQLException;
 
+/**
+ * Управляет пулом JDBC-соединений к PostgreSQL через HikariCP.
+ */
 public class ConnectionManager {
     private final HikariDataSource dataSource;
 

@@ -6,6 +6,11 @@ import ru.onequ1z.playtime_tracker.PlayTimeTrackerMod;
 import ru.onequ1z.playtime_tracker.persistence.ConnectionManager;
 import ru.onequ1z.playtime_tracker.service.PlayTimeService;
 
+/**
+ * Обработчик остановки сервера.
+ * <p>
+ * Сохраняет активные сессии, завершает фоновые задачи БД и закрывает пул соединений.
+ */
 public class ServerShutdownHandler {
     private final PlayTimeService playTimeService;
     private final ConnectionManager connectionManager;

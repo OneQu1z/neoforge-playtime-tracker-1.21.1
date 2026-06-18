@@ -4,6 +4,12 @@ import java.time.Instant;
 import java.util.UUID;
 
 
+/**
+ * Сущность одной игровой сессии игрока.
+ * <p>
+ * Соответствует строке таблицы {@code player_sessions}: от входа на сервер
+ * до выхода или принудительного закрытия при сбое.
+ */
 public class PlayerSessionEntity {
     private Long id;
     private UUID playerUuid;

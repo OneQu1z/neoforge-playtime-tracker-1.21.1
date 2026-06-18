@@ -8,6 +8,12 @@ import ru.onequ1z.playtime_tracker.service.PlayTimeService;
 import java.util.UUID;
 
 
+/**
+ * Обработчик событий входа и выхода игрока с сервера.
+ * <p>
+ * Передаёт UUID и никнейм в {@link ru.onequ1z.playtime_tracker.service.PlayTimeService}
+ * для открытия и закрытия сессий.
+ */
 public class PlayerConnectionHandler {
     private final PlayTimeService playTimeService;
     public PlayerConnectionHandler(PlayTimeService playTimeService) {

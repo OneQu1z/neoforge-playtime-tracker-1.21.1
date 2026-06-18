@@ -7,6 +7,11 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.Properties;
 
+/**
+ * Загружает настройки БД из файла {@code config/playtime_tracker/database.properties}.
+ * <p>
+ * При отсутствии файла создаёт его с параметрами по умолчанию.
+ */
 public class DatabaseConfigLoader {
     private static final String DEFAULT_CONFIG = """
     host=localhost

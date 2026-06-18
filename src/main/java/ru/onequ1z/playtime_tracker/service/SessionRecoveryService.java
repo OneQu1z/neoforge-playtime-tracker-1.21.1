@@ -9,6 +9,12 @@ import java.time.Instant;
 import java.util.List;
 import java.util.UUID;
 
+/**
+ * Восстанавливает незакрытые сессии после сбоя сервера.
+ * <p>
+ * Закрывает «осиротевшие» записи по времени последней активности ({@code last_seen_at})
+ * и переносит их длительность в статистику игрока.
+ */
 public class SessionRecoveryService {
     private final PlayerSessionRepository sessionRepository;
     private final SessionFinalizer sessionFinalizer;

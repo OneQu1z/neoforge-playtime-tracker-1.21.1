@@ -10,6 +10,12 @@ import java.time.Instant;
 import java.time.temporal.ChronoUnit;
 import java.util.UUID;
 
+/**
+ * Атомарно завершает сессию и обновляет агрегированную статистику игрока.
+ * <p>
+ * В одной транзакции закрывает запись сессии, увеличивает общее время
+ * и пересчитывает недельное время за последние 7 дней.
+ */
 public class SessionFinalizer {
     private static final int WEEKLY_PERIOD_DAYS = 7;
 

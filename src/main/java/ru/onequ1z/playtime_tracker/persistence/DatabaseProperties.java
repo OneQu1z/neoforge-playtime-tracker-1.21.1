@@ -1,5 +1,8 @@
 package ru.onequ1z.playtime_tracker.persistence;
 
+/**
+ * Неизменяемые параметры подключения к PostgreSQL.
+ */
 public class DatabaseProperties {
     private final String host;
     private final int port;

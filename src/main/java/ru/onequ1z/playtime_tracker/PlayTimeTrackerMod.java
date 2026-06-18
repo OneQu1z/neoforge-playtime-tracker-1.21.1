@@ -24,6 +24,12 @@ import ru.onequ1z.playtime_tracker.service.SessionRecoveryService;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
+/**
+ * Точка входа мода NeoForge для учёта игрового времени игроков.
+ * <p>
+ * Инициализирует подключение к PostgreSQL, создаёт схему БД, собирает зависимости
+ * сервисного слоя и регистрирует обработчики событий сервера.
+ */
 @Mod(PlayTimeTrackerMod.MOD_ID)
 public class PlayTimeTrackerMod {
     public static final String MOD_ID = "playtime_tracker";

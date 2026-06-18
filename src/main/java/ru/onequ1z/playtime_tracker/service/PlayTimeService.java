@@ -13,6 +13,12 @@ import java.util.concurrent.RejectedExecutionException;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.atomic.AtomicBoolean;
 
+/**
+ * Основной сервис учёта игрового времени.
+ * <p>
+ * Ведёт карту активных сессий в памяти, асинхронно выполняет операции с БД
+ * и координирует открытие, закрытие и восстановление сессий.
+ */
 public class PlayTimeService {
     private static final long SHUTDOWN_TIMEOUT_SECONDS = 30;
 
